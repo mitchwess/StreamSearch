@@ -1,10 +1,12 @@
 {
-  "name": "StreamSearch",
+  "name": "streamsearch",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "createDB": "mysql --user=root --password=password < ./database/CreateDatabase.sql",
+    "addData": "mysql --local-infile=1 --user=root --password=password < ./database/addData.sql"
   },
   "repository": {
     "type": "git",
@@ -16,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/mitchwess/StreamSearch/issues"
   },
-  "homepage": "https://github.com/mitchwess/StreamSearch#readme"
+  "homepage": "https://github.com/mitchwess/StreamSearch#readme",
+  "dependencies": {
+    "mysql": "^2.18.1"
+  }
 }
