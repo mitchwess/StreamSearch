@@ -1,10 +1,19 @@
 # StreamSearch
 
-might have to run 'npm install --save cors' in backend folder to let frontend and backend work togethers
+//////////// how to run frontend with backend ///////////////////////////
 
-'npm start' to run backend inside of the backend folder
+1) in the terminal cd to client folder then type 'npm install'
+2) in the terminal cd to api folder then type 'npm install'
+3) in the terminal makesure you're in the main StreamSearch directory
+     and type 'npm install --save-dev concurrently'
+4) only have to do the first three steps once.
 
-'npx start' to run frontend inside of frontend folder
+5) to run the website make sure youre in the main StreamSearch folder and type 'npm run dev'
+
+
+
+
+
 # 
 #   ->database (files for database creation)
 #
