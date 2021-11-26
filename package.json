@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "createDB": "mysql --user=root --password=password < ./database/CreateDatabase.sql",
@@ -23,9 +22,9 @@
     "url": "https://github.com/mitchwess/StreamSearch/issues"
   },
   "homepage": "https://github.com/mitchwess/StreamSearch#readme",
-  "dependencies": {
+  "dependencies": {},
+  "mysql": "^2.18.1",
+  "devDependencies": {
     "concurrently": "^6.4.0"
-  },
-  
-    "mysql": "^2.18.1"
   }
+}
