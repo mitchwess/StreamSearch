@@ -15,7 +15,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,6 +23,60 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+.App-body {
+  background-color: #353942;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+a{
+  color: grey;
+}
+ul{
+  margin-top: 10px;
+  padding: 10px;
+  list-style: none;
+}
+ul li{
+  float: center;
+  height: 45px;
+}
+
+.App-drop{
+  color: white;
+  padding-bottom: 12px;
+  background-color: #5a637a;
+  opacity: .8;
+}
+
+.App-drop:hover{
+  background-color: #6f81b1;
+}
+
+ul li a{  
+  padding: 5px;
+  background-color: #51618a;
+  opacity: .8;
+  color: white;
+  text-decoration: none;
+}
+
+ul li a:hover{
+  background-color: salmon;
+}
+
+ul li ul li{
+  display: none;
+}
+
+ul li:hover ul li{
+  display: block;
+}
+
 
 .App-link {
   color: #61dafb;

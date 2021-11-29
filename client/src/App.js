@@ -1,6 +1,6 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Title from './page_components/title.js';
 
 class App extends React.Component{
   constructor(props){
@@ -23,9 +23,24 @@ render(){
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      <Title />
       </header>
-  <p>{this.state.apiResponse}</p>
+      <div className = "App-body">
+        <body>
+        <p>Select a Movie Genre You Would Like to Explore</p>
+        <ul>
+          <li><a className="App-drop" href="/">Genres</a>
+            <ul>
+              <li><a href="/">Action</a></li>
+              <li><a href="/">Adventure</a></li>
+              <li><a href="/">Comedy</a></li>
+            </ul>
+          </li>
+        </ul>
+        </body>
+      </div>
+  {// this code tests api <p>{this.state.apiResponse}</p>
+  }
     </div>
   );
 }
