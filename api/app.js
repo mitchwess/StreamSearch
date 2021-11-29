@@ -9,6 +9,7 @@ var cors=require("cors");//var to connect backend annd front end
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 testAPIRouter= require('./routes/testAPI');//path to test api backend file
+searchResultsRouter= require('./routes/results');// path to seasrch results router
 var app = express();
 
 // view engine setup
@@ -25,6 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/testAPI',testAPIRouter); // www.  .com/testAPI will be a part of website
+app.use('/searchResults', searchResultsRouter); //www.  .com/searchResults will be a part of website for search results
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
