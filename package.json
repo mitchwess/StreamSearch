@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "createDB": "mysql --user=root --password=password < ./datbase/database/CreateDatabase.sql",
-    "addData": "mysql --local-infile=1 --user=root --password=password < ./datbase/database/addData.sql",
+    "createDB": "mysql --user=root --password=password < ./database/CreateDatabase.sql",
+    "addData": "mysql --local-infile=1 --user=root --password=password < ./database/addData.sql",
     "client": "cd client && npm start",
     "api": "cd api && npm start",
     "dev": "concurrently \"npm run api\" \"npm run client\""
