@@ -10,6 +10,8 @@
 
 5) to run the website make sure youre in the main StreamSearch folder and type 'npm run dev'
 
+6) might need to run npm install mysql in the api folder to connect to database
+
 
 
 

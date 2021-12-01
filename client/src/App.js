@@ -9,7 +9,7 @@ class App extends React.Component{
   }
 
   callAPI(){
-    fetch("http://localhost:9000/testAPI")
+    fetch("http://localhost:9000/testdb")
     .then(res => res.text())
     .then(res => this.setState({apiResponse: res}));
   }
@@ -39,7 +39,7 @@ render(){
         </ul>
         </body>
       </div>
-  {// this code tests api <p>{this.state.apiResponse}</p>
+  {<p>{this.state.apiResponse}</p>
   }
     </div>
   );
