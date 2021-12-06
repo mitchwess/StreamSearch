@@ -11,6 +11,7 @@ var usersRouter = require('./routes/users');
 testAPIRouter= require('./routes/testAPI');//path to test api backend file
 searchResultsRouter= require('./routes/results');// path to seasrch results router
 dbConnectRouter= require('./routes/testDBConnection');//////
+checkBoxRouter= require('./routes/checkbox');///////////////////
 var app = express();
 
 // view engine setup
@@ -20,7 +21,14 @@ app.set('view engine', 'jade');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(cors()); //global meathod to connect backed and front end
-app.use(express.urlencoded({ extended: false }));
+
+var bodyParser = require('body-parser')
+app.use( bodyParser.json() );       // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+  extended: true
+})); 
+
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -29,6 +37,7 @@ app.use('/users', usersRouter);
 app.use('/testAPI',testAPIRouter); // www.  .com/testAPI will be a part of website
 app.use('/searchResults', searchResultsRouter); //www.  .com/searchResults will be a part of website for search results
 app.use('/testdb', dbConnectRouter);///////////
+app.use('/checkboxdata', checkBoxRouter);//////////////////
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

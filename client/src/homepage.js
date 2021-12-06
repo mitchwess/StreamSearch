@@ -1,6 +1,10 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import './App.css';
 import Title from './page_components/title.js';
+
+var url = "http://localhost:9000/checkboxdata";
+
 
 class HomePage extends React.Component{
   constructor(props){
@@ -8,15 +12,16 @@ class HomePage extends React.Component{
     this.state=this.state = {
         netflixCheckBox: false,
         huluCheckBox: false,
+        amazonCheckBox: false,
         disneyCheckBox: false,
-        amazonCheckBox: false
+        search: ""
     }
   }
 
   callAPI(){
-    fetch("http://localhost:9000/testdb")
-    .then(res => res.text())
-    .then(res => this.setState({apiResponse: res}));
+     fetch("http://localhost:9000/testdb")
+     .then(res => res.text());
+     //.then(res => this.setState({apiResponse: res}));
   }
 
   componentWillMount(){
@@ -56,18 +61,23 @@ class HomePage extends React.Component{
     else this.setState({disneyCheckBox: false})
     }
 
+    searchbarChangeHandler = e => {
+      this.setState({ [e.target.name]: e.target.value})
+    }
+
     ///////////////////////////////////////////////////////////////////
 
-    onCliclHandler = e => {
+    onCliclHandler = e => { //sends checkbox data to backend
         console.log(this.state);
-      //   axios
-      //     .post('http://localhost:9000/testAPI', this.state)
-      //     .then(response => {
-      //         console.log(response);
-      //     })
-      //     .catch(error => {
-      //         console.log(error);
-      //     })
+        console.log(JSON.stringify(this.state));
+        var options = {
+          method: 'POST',
+          body: JSON.stringify(this.state),
+          headers:{
+            'checkbox-data': JSON.stringify(this.state)
+          }
+        };
+        fetch(url, options);
       }
 
   render(){
@@ -81,6 +91,12 @@ class HomePage extends React.Component{
           <body>
           <p>Welcome to StreamSearch</p>
           <form>
+              <input 
+                  type="text"
+                  id="searchbar"
+                  name="search"
+                  onChange={this.searchbarChangeHandler}>
+              </input>
               <input 
                   type="checkbox" 
                   id="netflix_checkbox" 
@@ -117,7 +133,7 @@ class HomePage extends React.Component{
            
           </form>
           <input type="submit" onClick={() => this.onCliclHandler()}></input>
-  
+          
           <ul>
             <li><a className="App-drop" href="/">Genres</a>
               <ul>
@@ -129,7 +145,8 @@ class HomePage extends React.Component{
           </ul>
           </body>
         </div>
-    {<p>{this.state.apiResponse}</p>
+    {<p>{//this.state.apiResponse
+    }</p>
     }
       </div>
     );
