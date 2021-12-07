@@ -1,4 +1,4 @@
-show_id,type,title,director,cast,country,date_added,release_year,rating,duration,listed_in,description
+hulu_id,type,title,director,cast,country,date_added,release_year,rating,duration,listed_in,description
 s1,Movie,Ricky Velez: Here's Everything,,,,"October 24, 2021",2021,TV-MA,,"Comedy, Stand Up",​Comedian Ricky Velez bares it all with his honest lens and down to earth perspective in his first-ever HBO stand-up special.
 s2,Movie,Silent Night,,,,"October 23, 2021",2020,,94 min,"Crime, Drama, Thriller","Mark, a low end South London hitman recently released from prison, tries to go straight for his daughter, but gets drawn back in by Alan, his former cellmate, to do one final job."
 s3,Movie,The Marksman,,,,"October 23, 2021",2021,PG-13,108 min,"Action, Thriller",A hardened Arizona rancher tries to protect an 11-year-old migrant boy fleeing from a ruthless drug cartel.
