@@ -14,7 +14,7 @@ function send_to_query(dat){
 
 function get_data(str){
     data = JSON.parse(str);
-    //console.log(data);
+    console.log(data);
     send_to_query(data);   
 }
 

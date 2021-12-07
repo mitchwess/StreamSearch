@@ -66,6 +66,11 @@ class HomePage extends React.Component{
       this.setState({ [e.target.name]: e.target.value})
     }
 
+    genreButonHandler(str){
+      this.setState({genre: str});
+      this.onCliclHandler();
+    }
+
     ///////////////////////////////////////////////////////////////////
 
     onCliclHandler = e => { //sends checkbox data to backend
@@ -80,6 +85,7 @@ class HomePage extends React.Component{
         };
         fetch(url, options);
       }
+
 
   render(){
     const { netflixCheckBox } = this.state  
@@ -138,7 +144,7 @@ class HomePage extends React.Component{
           <ul>
             <li><a className="App-drop" href="/">Genres</a>
               <ul>
-                <li><a href="/">Action</a></li>
+                <li><input type="submit" value="Action" onClick={() => this.genreButonHandler("Action")}></input></li>
                 <li><a href="/">Adventure</a></li>
                 <li><a href="/">Comedy</a></li>
               </ul>
