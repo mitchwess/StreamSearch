@@ -47,3 +47,4 @@ class query_api{
 }
 var tmp = new query_api;
 tmp.find_by_genre('netflix', 'Thrillers');
+module.exports = query_api;
