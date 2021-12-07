@@ -14,7 +14,8 @@ class HomePage extends React.Component{
         huluCheckBox: false,
         amazonCheckBox: false,
         disneyCheckBox: false,
-        search: ""
+        search: "",
+        genre: ""
     }
   }
 

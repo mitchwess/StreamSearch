@@ -1,20 +1,22 @@
 var express = require("express");
 var router=express.Router();
+const query_api = require('./query');
 router.use(express.static('public'));
 router.use(express.urlencoded());
 router.use(express.json({type: ['application/json', 'text/plain']}))
 
 var data;
+const query_options = new query_api;
 
-function parse_data(stri){
-    var tmp = "hello";
-    //tmp.includes(substr);
+function send_to_query(dat){
+    query_options.get_user_input(dat);
 }
+
 function get_data(str){
-    console.log(str);
     data = JSON.parse(str);
-    console.log(data.netflixCheckBox);
-    //parse_data(str);
-    //return str;
+    //console.log(data);
+    send_to_query(data);   
 }
+
+
 module.exports= {get_data};
