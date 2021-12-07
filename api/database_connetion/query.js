@@ -8,31 +8,12 @@ var pool = mysql.createPool({
     database: 'Stream'
 });
 
+
 class query_api{
 
-  find_by_genre(option, genre){     //input string with name of one of the services as well as genre in a string
-    pool.getConnection(function(err, connection){
-      if (err) throw err;
-      connection.query('SELECT * FROM ? WHERE listed_in LIKE "%?%"', [option, genre], function(error, results, fields){
-        console.log(results)
-        connection.release();
-        if (error) throw error;
-      });
-    });
+  get_user_input(data){
+      
   }
-
-  find_by_title(){
-
-  }
-
-  find_by_director(){
-
-  }
-
-  find_by_cast_member(){
-
-  }
- 
 
   join_selected_tables(netfixOption, huluOption, primeOption, disneyOption){
     pool.getConnection(function(err, connection){
@@ -44,7 +25,42 @@ class query_api{
       });
     });
   }
+
+  select_hulu_data(){
+    pool.getConnection(function(err, connection){
+      if (err) throw err;
+      connection.query('SELECT * FROM hulu', function(error, results, fields){
+        console.log(results[0])
+        connection.release();
+        if (error) throw error;
+      });
+    });
+  }
+
+  select_prime_data(){
+    pool.getConnection(function(err, connection){
+      if (err) throw err;
+      connection.query('SELECT * FROM prime', function(error, results, fields){
+        console.log(results[0])
+        connection.release();
+        if (error) throw error;
+      });
+    });
+  }
+
+  select_disney_data(){
+    pool.getConnection(function(err, connection){
+      if (err) throw err;
+      connection.query('SELECT * FROM disney', function(error, results, fields){
+        console.log(results)
+        connection.release();
+        if (error) throw error;
+      });
+    });
+  }
+
+  
+
 }
-var tmp = new query_api;
-tmp.find_by_genre('netflix', 'Thrillers');
-module.exports = query_api;
+
+module.exports = query_api; 
