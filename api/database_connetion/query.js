@@ -23,8 +23,17 @@ class query_api{
     });
   }
 
-  find_by_title(){
-
+  find_by_title(option, title){
+    pool.getConnection(function(err, connection){
+        if (err) throw err;
+        var sql = "SELECT * FROM " + option + " WHERE title = '" + title + "'";
+        console.log(sql);
+        connection.query(sql, function(error, results, fields){
+        console.log(results)
+        connection.release();
+        if (error) throw error;
+      });
+    });
   }
 
   find_by_director(){
@@ -36,5 +45,5 @@ class query_api{
   }
 }
 var tmp = new query_api;
-tmp.find_by_genre('netflix', 'Thrillers');
+tmp.find_by_title('netflix', 'Ganglands');
 module.exports = query_api;
