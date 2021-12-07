@@ -23,6 +23,32 @@ class query_api{
     });
   }
 
+  find_by_country(option, country){
+    pool.getConnection(function(err, connection){
+        if (err) throw err;
+        var sql = "SELECT * FROM " + option + " WHERE country = '" + country + "'";
+        console.log(sql);
+        connection.query(sql, function(error, results, fields){
+        console.log(results)
+        connection.release();
+        if (error) throw error;
+      });
+    });
+  }
+
+  find_by_release_year(option, year){
+    pool.getConnection(function(err, connection){
+        if (err) throw err;
+        var sql = "SELECT * FROM " + option + " WHERE release_year = '" + year + "'";
+        console.log(sql);
+        connection.query(sql, function(error, results, fields){
+        console.log(results)
+        connection.release();
+        if (error) throw error;
+      });
+    });
+  }
+
   find_by_title(option, title){
     pool.getConnection(function(err, connection){
         if (err) throw err;
@@ -36,14 +62,30 @@ class query_api{
     });
   }
 
-  find_by_director(){
-
+  find_by_director(option, director){
+    pool.getConnection(function(err, connection){
+        if (err) throw err;
+        var sql = "SELECT * FROM " + option + " WHERE director = '" + director + "'";
+        console.log(sql);
+        connection.query(sql, function(error, results, fields){
+        console.log(results)
+        connection.release();
+        if (error) throw error;
+      });
+    });
   }
 
-  find_by_cast_member(){
-
+  find_by_cast_member(option, cast_member){
+    pool.getConnection(function(err, connection){
+        if (err) throw err;
+        var sql = "SELECT * FROM " + option + " WHERE show_cast LIKE '%" + cast_member + "%'";
+        console.log(sql);
+        connection.query(sql, function(error, results, fields){
+        console.log(results)
+        connection.release();
+        if (error) throw error;
+      });
+    });
   }
 }
-var tmp = new query_api;
-tmp.find_by_title('netflix', 'Ganglands');
 module.exports = query_api;
