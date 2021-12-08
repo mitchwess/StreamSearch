@@ -17,8 +17,7 @@ class HomePage extends React.Component{
         genreCheckbox: false,
         titleCheckbox: false,
         castCheckBox: false,
-        search: "",
-        genre: ""
+        search: ""
     }
   }
 
@@ -84,9 +83,6 @@ class HomePage extends React.Component{
       this.setState({ [e.target.name]: e.target.value})
     }
 
-    genreButonHandler(str){
-      this.setState({genre: str});
-    }
 
     ///////////////////////////////////////////////////////////////////
 
@@ -181,15 +177,6 @@ class HomePage extends React.Component{
           </form>
           <input type="submit" onClick={() => this.onCliclHandler()}></input>
           
-          <ul>
-            <li><a className="App-drop" href="/">Genres</a>
-              <ul>
-                <li><input type="submit" value="Thrillers" onClick={() => this.genreButonHandler("Thrillers")}></input></li>
-                <li><a href="/">Adventure</a></li>
-                <li><a href="/">Comedy</a></li>
-              </ul>
-            </li>
-          </ul>
           </body>
         </div>
     {<p>{//this.state.apiResponse
