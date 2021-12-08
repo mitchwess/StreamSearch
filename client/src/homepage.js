@@ -14,6 +14,9 @@ class HomePage extends React.Component{
         huluCheckBox: false,
         amazonCheckBox: false,
         disneyCheckBox: false,
+        genreCheckbox: false,
+        titleCheckbox: false,
+        castCheckBox: false,
         search: "",
         genre: ""
     }
@@ -62,13 +65,27 @@ class HomePage extends React.Component{
     else this.setState({disneyCheckBox: false})
     }
 
+    title_chageHandler = e => {
+      if(document.getElementById("title_checkBox").checked) this.setState({titleCheckbox: true});
+      else this.setState({titleCheckbox: false})
+    }
+
+    genre_chageHandler = e => {
+      if(document.getElementById("genre_checkBox").checked) this.setState({genreCheckbox: true});
+    else this.setState({genreCheckbox: false});
+    }
+
+    cast_chageHandler = e => {
+      if(document.getElementById("cast_checkBox").checked) this.setState({castCheckBox: true});
+      else this.setState({castCheckBox: false})
+    }
+
     searchbarChangeHandler = e => {
       this.setState({ [e.target.name]: e.target.value})
     }
 
     genreButonHandler(str){
       this.setState({genre: str});
-      this.onCliclHandler();
     }
 
     ///////////////////////////////////////////////////////////////////
@@ -98,12 +115,35 @@ class HomePage extends React.Component{
           <body>
           <p>Welcome to StreamSearch</p>
           <form>
+          <input 
+                  type="checkbox" 
+                  id="title_checkBox" 
+                  name="titleCheckbox"
+                  onChange={this.title_chageHandler}>
+              </input>
+            <label className="App-check" for="title_checkBox">Title</label>
+          <input 
+                  type="checkbox" 
+                  id="genre_checkBox" 
+                  name="genreCheckbox" 
+                  onChange={this.genre_chageHandler}>
+              </input>
+            <label className="App-check" for="genre_checkBox">Genre</label>
+            <input 
+                  type="checkbox" 
+                  id="cast_checkBox" 
+                  name="castCheckBox"
+                  onChange={this.cast_chageHandler}>
+              </input>
+            <label className="App-check" for="cast_checkBox">Cast</label>
+            <br></br>
               <input 
                   type="text"
                   id="searchbar"
                   name="search"
                   onChange={this.searchbarChangeHandler}>
               </input>
+              <br></br>
               <input 
                   type="checkbox" 
                   id="netflix_checkbox" 
@@ -144,7 +184,7 @@ class HomePage extends React.Component{
           <ul>
             <li><a className="App-drop" href="/">Genres</a>
               <ul>
-                <li><input type="submit" value="Action" onClick={() => this.genreButonHandler("Action")}></input></li>
+                <li><input type="submit" value="Thrillers" onClick={() => this.genreButonHandler("Thrillers")}></input></li>
                 <li><a href="/">Adventure</a></li>
                 <li><a href="/">Comedy</a></li>
               </ul>

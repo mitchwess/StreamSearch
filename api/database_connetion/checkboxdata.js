@@ -9,7 +9,7 @@ var data;
 const query_options = new query_api;
 
 function send_to_query(dat){
-    query_options.get_user_input(dat);
+    //query_options.find_by_genre('netflix', dat.genre);
 }
 
 function get_data(str){
