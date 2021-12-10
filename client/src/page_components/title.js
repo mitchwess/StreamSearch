@@ -6,7 +6,7 @@ import React from 'react';
 function Title(){
     return(
         <div>
-            <h1>Stream Search</h1>
+            <h1><a href='/'>Stream Search</a></h1>
         </div>
     )
 }

@@ -10,19 +10,6 @@ var pool = mysql.createPool({
 
 
 
-  function find_by_genre(option, genre){     //input string with name of one of the services as well as genre in a string
-    pool.getConnection(function(err, connection){
-        if (err) throw err;
-        var sql = "SELECT * FROM " + option + " WHERE listed_in LIKE '%" + genre + "%'";
-        console.log(sql);
-        connection.query(sql, function(error, results, fields){
-        console.log(results)
-        connection.release();
-        if (error) throw error;
-      });
-    });
-  }
-
   function find_by_country(option, country){
     pool.getConnection(function(err, connection){
         if (err) throw err;
@@ -49,18 +36,42 @@ var pool = mysql.createPool({
     });
   }
 
-  function find_by_title(option, title){
-    pool.getConnection(function(err, connection){
-        if (err) throw err;
-        var sql = "SELECT * FROM " + option + " WHERE title LIKE '%" + title + "%'";
-        console.log(sql);
-        connection.query(sql, function(error, results, fields){
-        //console.log(results[0].title);
-        connection.release();
-        if (error) throw error;
-        return results[0].title;
-      });
+  find_by_title = function(option, title){
+    var promise = new Promise(function(resolve, reject){
+
+    
+        pool.getConnection(function(err, connection){
+            if (err) throw err;
+            var sql = "SELECT * FROM " + option + " WHERE title LIKE '%" + title + "%'";
+            console.log(sql);
+            connection.query(sql, function(error, results, fields){
+            //console.log(results[0].title);
+            resolve(results);
+            connection.release();
+            if (error) throw error;
+        });
+        });
     });
+    return promise;
+  }
+
+  find_by_genre = function(option, genre){   //input string with name of one of the services as well as genre in a string
+      var promise = new Promise(function(resolve, reject){
+
+
+        pool.getConnection(function(err, connection){
+            if (err) throw err;
+            var sql = "SELECT * FROM " + option + " WHERE listed_in LIKE '%" + genre + "%'";
+            console.log(sql);
+            connection.query(sql, function(error, results, fields){
+            //console.log(results)
+            resolve(results);
+            connection.release();
+            if (error) throw error;
+          });
+        });
+      });
+      return promise;
   }
 
   function find_by_director(option, director){
@@ -76,17 +87,22 @@ var pool = mysql.createPool({
     });
   }
 
-  function find_by_cast_member(option, cast_member){
-    pool.getConnection(function(err, connection){
-        if (err) throw err;
-        var sql = "SELECT * FROM " + option + " WHERE show_cast LIKE '%" + cast_member + "%'";
-        console.log(sql);
-        connection.query(sql, function(error, results, fields){
-        console.log(results)
-        connection.release();
-        if (error) throw error;
-      });
-    });
-  }
+  find_by_cast_member = function(option, cast_member){
+      var promise = new Promise(function(resolve, reject){
 
-module.exports = {find_by_title};
+        pool.getConnection(function(err, connection){
+            if (err) throw err;
+            var sql = "SELECT * FROM " + option + " WHERE show_cast LIKE '%" + cast_member + "%'";
+            console.log(sql);
+            connection.query(sql, function(error, results, fields){
+            //console.log(results)
+            resolve(results);
+            connection.release();
+            if (error) throw error;
+          });
+        });
+    });
+    return promise;
+}
+
+module.exports = {find_by_title, find_by_genre, find_by_cast_member};

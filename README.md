@@ -7,14 +7,18 @@
 3) in the terminal makesure you're in the main StreamSearch directory
      and type 'npm install --save-dev concurrently'
 4) only have to do the first three steps once.
-
-5) to run the website make sure youre in the main StreamSearch folder and type 'npm run dev'
-
-6) npm install mysql in the api folder to connect to database
+5) npm install mysql in the api folder to connect to database
+6) to run the website make sure youre in the main StreamSearch folder and type 'npm run dev'
 
 
 
 
+
+//important files that have most of our code
+./api/database_connection/checkboxdata
+./api/database_connection/query.js
+./api/routes/checkbox.js
+./client/homepage.js
 
 # 
 #   ->database (files for database creation)

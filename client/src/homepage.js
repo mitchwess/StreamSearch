@@ -13,7 +13,6 @@ class HomePage extends React.Component{
         netflixCheckBox: false,
         huluCheckBox: false,
         amazonCheckBox: false,
-        disneyCheckBox: false,
         genreCheckbox: false,
         titleCheckbox: false,
         castCheckBox: false,
@@ -22,9 +21,9 @@ class HomePage extends React.Component{
   }
 
   callAPI(){
-     fetch("http://localhost:9000/testdb")
-     .then(res => res.text());
-     //.then(res => this.setState({apiResponse: res}));
+     fetch(url)
+     .then(res => res.text())
+     .then(res => this.setState({apiResponse: res}));
   }
 
   componentWillMount(){
@@ -85,6 +84,14 @@ class HomePage extends React.Component{
 
 
     ///////////////////////////////////////////////////////////////////
+
+    get_data_back = e => {
+      var options = {
+        method: "GET",
+        //body: JSON.stringify(this.state)
+      };
+      fetch(url,options);
+    }
 
     onCliclHandler = e => { //sends checkbox data to backend
         console.log(this.state);
@@ -166,18 +173,12 @@ class HomePage extends React.Component{
             </input>
             <label className="App-check" for="amazon_checkbox">Amazon Prime</label>
   
-            <input 
-              type="checkbox" 
-              id="dis_checkbox" 
-              name="disneyCheckBox"
-              onChange={this.disney_changeHandler}>
-            </input>
-            <label for="dis_checkbox">Disney+</label>
            
           </form>
           <input type="submit" onClick={() => this.onCliclHandler()}></input>
-          
+          <br></br>
           </body>
+          
         </div>
     {<p>{//this.state.apiResponse
     }</p>
