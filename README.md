@@ -1,6 +1,8 @@
 # StreamSearch
 
-//////////// how to run frontend with backend ///////////////////////////
+This project allows you to search any Movie/show title, actor, and genre from Netflix, Hulu, and Amazon Prime. The search will display the results of the titles that match the search and show what streaming service each result belongs to.
+
+//////////// how to run project ///////////////////////////
 
 1) in the terminal cd to client folder then type 'npm install'
 2) in the terminal cd to api folder then type 'npm install'
@@ -13,12 +15,6 @@
 
 
 
-
-//important files that have most of our code
-./api/database_connection/checkboxdata
-./api/database_connection/query.js
-./api/routes/checkbox.js
-./client/homepage.js
 
 # 
 #   ->database (files for database creation)
